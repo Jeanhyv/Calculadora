@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Prototipo visual estático de Calculadora de Equilibrio">
+  <title>Calculadora de Equilibrio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Navegación principal">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">CE</span>
+        <div><strong>Calculadora</strong><small>de Equilibrio</small></div>
+      </div>
+
+      <nav class="main-nav">
+        <button class="nav-item active" data-view="inicio"><span>⌂</span>Inicio</button>
+        <button class="nav-item" data-view="calculadora"><span>⌗</span>Calculadora</button>
+        <button class="nav-item" data-view="proyeccion"><span>↗</span>Proyección</button>
+        <button class="nav-item" data-view="reportes"><span>▤</span>Reportes</button>
+        <button class="nav-item" data-view="asistente"><span>✦</span>Asistente IA <em>Beta</em></button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="nav-item" data-view="configuracion"><span>⚙</span>Configuración</button>
+        <button class="nav-item" data-view="acerca"><span>ⓘ</span>Acerca de</button>
+        <button class="theme-toggle" id="themeToggle" aria-label="Cambiar modo de color" aria-pressed="false">
+          <span class="theme-icon">☾</span><span>Modo oscuro</span><i></i>
+        </button>
+      </div>
+    </aside>
+
+    <header class="mobile-header">
+      <div class="brand"><span class="brand-mark">CE</span><strong>Calculadora de Equilibrio</strong></div>
+      <button class="mobile-theme" id="mobileThemeToggle" aria-label="Cambiar modo de color">☾</button>
+    </header>
+
+    <main class="content">
+      <section class="view active" id="inicio">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">Panel general</p>
+            <h1>Buenos días, Alex</h1>
+            <p>Una vista rápida del estado financiero de tu negocio.</p>
+          </div>
+          <button class="primary-action" data-go="calculadora">＋ Nuevo cálculo</button>
+        </div>
+
+        <div class="metric-grid">
+          <article class="metric-card accent-blue">
+            <div class="metric-icon">◎</div><span>Punto de
+              equilibrio</span><strong>$84,250</strong><small>mensuales</small><b>↓ 4.2% vs. mes anterior</b>
+          </article>
+          <article class="metric-card accent-violet">
+            <div class="metric-icon">▥</div><span>Ventas actuales</span><strong>$126,800</strong><small>este
+              mes</small><b>↑ 8.7% vs. mes anterior</b>
+          </article>
+          <article class="metric-card accent-green">
+            <div class="metric-icon">↗</div><span>Margen de seguridad</span><strong>33.6%</strong><small>nivel
+              saludable</small><b>＋ $42,550 sobre equilibrio</b>
+          </article>
+          <article class="metric-card accent-orange">
+            <div class="metric-icon">◷</div><span>Última actualización</span><strong>Hoy</strong><small>10:32 a.
+              m.</small><b>Datos al día</b>
+          </article>
+        </div>
+
+        <div class="dashboard-grid">
+          <article class="panel chart-panel">
+            <div class="panel-title">
+              <div>
+                <h2>Resumen mensual</h2>
+                <p>Ventas vs. punto de equilibrio</p>
+              </div><span class="select-like">Últimos 6 meses⌄</span>
+            </div>
+            <div class="legend"><span><i class="dot blue"></i>Ventas</span><span><i class="dot dashed"></i>Punto de
+                equilibrio</span></div>
+            <div class="bar-chart" aria-label="Gráfica ilustrativa de ventas mensuales">
+              <div class="target-line"><span>$84k</span></div>
+              <div class="bar-group"><i style="--h:45%"></i><label>Abr</label></div>
+              <div class="bar-group"><i style="--h:58%"></i><label>May</label></div>
+              <div class="bar-group"><i style="--h:52%"></i><label>Jun</label></div>
+              <div class="bar-group"><i style="--h:67%"></i><label>Jul</label></div>
+              <div class="bar-group"><i style="--h:76%"></i><label>Ago</label></div>
+              <div class="bar-group"><i style="--h:88%"></i><label>Sep</label></div>
+            </div>
+          </article>
+          <article class="panel quick-panel">
+            <div class="panel-title">
+              <div>
+                <h2>Accesos rápidos</h2>
+                <p>Continúa donde lo dejaste</p>
+              </div>
+            </div>
+            <button data-go="calculadora"><span class="quick-icon blue-bg">⌗</span>
+              <div><strong>Calcular equilibrio</strong><small>Ingresa costos y precios</small></div><b>›</b>
+            </button>
+            <button data-go="proyeccion"><span class="quick-icon violet-bg">↗</span>
+              <div><strong>Crear proyección</strong><small>Explora escenarios futuros</small></div><b>›</b>
+            </button>
+            <button data-go="asistente"><span class="quick-icon green-bg">✦</span>
+              <div><strong>Consultar al asistente</strong><small>Resuelve dudas del negocio</small></div><b>›</b>
+            </button>
+          </article>
+        </div>
+      </section>
+
+      <section class="view" id="calculadora">
+        <div class="page-heading calculator-heading">
+          <div>
+            <p class="eyebrow">Herramientas</p>
+            <h1>Calculadora de Equilibrio</h1>
+            <p>Organiza productos y costos para visualizar un análisis completo del negocio.</p>
+          </div>
+          <div class="calculator-heading-actions"><span class="status-pill">Ejemplo sin guardar</span><button class="primary-action mock-action">Calcular escenario</button></div>
+        </div>
+
+        <div class="calculator-layout">
+          <div class="calculator-workspace">
+            <article class="panel calc-section analysis-card">
+              <div class="calc-section-title"><div><span class="step-number">1</span><div><h2>Datos del análisis</h2><p>Identifica el negocio y define el objetivo del escenario.</p></div></div></div>
+              <div class="calc-form-grid">
+                <label><span>Giro del negocio</span><select id="businessType"><option>Cafetería y alimentos</option><option>Comercio minorista</option><option>Servicios profesionales</option><option>Manufactura</option></select></label>
+                <label><span>Nombre del análisis</span><input type="text" value="Operación mensual — Octubre"></label>
+                <fieldset class="analysis-type"><legend>Tipo de análisis</legend><label><input type="radio" name="analysisType" value="real" checked><span><b>REAL</b><small>Datos de la operación actual</small></span></label><label><input type="radio" name="analysisType" value="simulation"><span><b>SIMULACIÓN</b><small>Escenario basado en otro análisis</small></span></label></fieldset>
+                <label id="originAnalysisField" class="conditional-field" hidden><span>Análisis de origen</span><select><option>Operación real — Septiembre</option><option>Cierre real — Agosto</option></select><small>La simulación toma este análisis como referencia visual.</small></label>
+                <label><span>Utilidad objetivo</span><div class="input-prefix"><b>$</b><input type="text" value="25,000"></div><small>Ganancia deseada además de cubrir todos los costos.</small></label>
+              </div>
+            </article>
+
+            <article class="panel calc-section">
+              <div class="calc-section-title"><div><span class="step-number">2</span><div><h2>Productos</h2><p>Agrega los productos incluidos en este análisis.</p></div></div><button class="secondary-action add-row" data-add="product">＋ Agregar producto</button></div>
+              <div class="entry-list" id="productList">
+                <div class="entry-row product-entry"><span class="entry-index">01</span><label><span>Nombre</span><input type="text" value="Café americano"></label><label><span>Precio de venta</span><div class="input-prefix"><b>$</b><input type="text" value="55"></div></label><label><span>Cantidad</span><input type="text" value="850"></label><button class="remove-row" aria-label="Eliminar producto">×</button></div>
+                <div class="entry-row product-entry"><span class="entry-index">02</span><label><span>Nombre</span><input type="text" value="Pan artesanal"></label><label><span>Precio de venta</span><div class="input-prefix"><b>$</b><input type="text" value="42"></div></label><label><span>Cantidad</span><input type="text" value="620"></label><button class="remove-row" aria-label="Eliminar producto">×</button></div>
+              </div>
+            </article>
+
+            <article class="panel calc-section">
+              <div class="calc-section-title"><div><span class="step-number">3</span><div><h2>Costos</h2><p>Clasifica cada costo y, si corresponde, asígnalo a un producto.</p></div></div><button class="secondary-action add-row" data-add="cost">＋ Agregar costo</button></div>
+              <aside class="cost-guidance" id="costGuidance"><span>✦</span><div><strong>Sugerencia para cafeterías y alimentos</strong><p>Renta y salarios suelen clasificarse como costos fijos. Ingredientes y empaques suelen ser variables y unitarios.</p></div></aside>
+              <div class="entry-list cost-list" id="costList">
+                <div class="entry-row cost-entry"><span class="entry-index">01</span><label><span>Nombre</span><input type="text" value="Renta del local"></label><label><span>Tipo</span><select><option selected>Fijo</option><option>Variable</option></select></label><label><span>Monto</span><div class="input-prefix"><b>$</b><input type="text" value="18,000"></div></label><label><span>Base</span><select><option selected>TOTAL</option><option>UNITARIO</option></select></label><label><span>Producto asociado</span><select><option selected>Sin asociación</option><option>Café americano</option><option>Pan artesanal</option></select></label><button class="remove-row" aria-label="Eliminar costo">×</button></div>
+                <div class="entry-row cost-entry"><span class="entry-index">02</span><label><span>Nombre</span><input type="text" value="Insumos de café"></label><label><span>Tipo</span><select><option>Fijo</option><option selected>Variable</option></select></label><label><span>Monto</span><div class="input-prefix"><b>$</b><input type="text" value="18"></div></label><label><span>Base</span><select><option>TOTAL</option><option selected>UNITARIO</option></select></label><label><span>Producto asociado</span><select><option>Sin asociación</option><option selected>Café americano</option><option>Pan artesanal</option></select></label><button class="remove-row" aria-label="Eliminar costo">×</button></div>
+              </div>
+            </article>
+
+            <article class="panel calc-section product-results">
+              <div class="calc-section-title"><div><span class="step-number result-step">✓</span><div><h2>Resultados por producto</h2><p>Distribución ilustrativa del margen y el equilibrio.</p></div></div></div>
+              <div class="responsive-table"><table><thead><tr><th>Producto</th><th>Margen contribución unitario</th><th>Margen contribución total</th><th>Punto de equilibrio</th></tr></thead><tbody><tr><td><strong>Café americano</strong></td><td>$37.00</td><td>$31,450</td><td>486 unidades</td></tr><tr><td><strong>Pan artesanal</strong></td><td>$24.50</td><td>$15,190</td><td>352 unidades</td></tr></tbody></table></div>
+            </article>
+          </div>
+
+          <aside class="calculator-summary">
+            <div class="summary-header"><p>Resultados generales</p><span>Vista previa</span><strong>$77,271</strong><small>Punto de equilibrio en ventas</small></div>
+            <div class="summary-metrics">
+              <div><span>Ingresos totales</span><strong>$72,790</strong></div><div><span>Costos fijos totales</span><strong>$28,600</strong></div><div><span>Costos variables totales</span><strong>$26,150</strong></div><div><span>Costos totales</span><strong>$54,750</strong></div><div><span>Margen de contribución total</span><strong>$46,640</strong></div><div><span>Índice de margen de contribución</span><strong>37.01%</strong></div><div class="summary-highlight"><span>Utilidad</span><strong>$18,040</strong></div><div><span>Ventas para utilidad objetivo</span><strong>$144,830</strong></div>
+            </div>
+            <div class="summary-note"><span>i</span><p>Resultados de ejemplo para representar la interfaz. Este prototipo no ejecuta cálculos reales.</p></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="view" id="proyeccion">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">Planeación</p>
+            <h1>Proyección</h1>
+            <p>Compara escenarios y anticipa el comportamiento de tus resultados.</p>
+          </div><button class="primary-action mock-action">＋ Nueva proyección</button>
+        </div>
+        <div class="filter-strip"><button class="active">6 meses</button><button>12 meses</button><button>24
+            meses</button><span></span><label>Escenario <select>
+              <option>Base 2026</option>
+            </select></label></div>
+        <div class="metric-grid three">
+          <article class="metric-card"><span>Ventas proyectadas</span><strong>$912,400</strong><b>↑ 12.4%
+              crecimiento</b></article>
+          <article class="metric-card"><span>Utilidad estimada</span><strong>$248,760</strong><b>27.3% de margen</b>
+          </article>
+          <article class="metric-card"><span>Mes de recuperación</span><strong>Mes 3</strong><b>Dentro del objetivo</b>
+          </article>
+        </div>
+        <article class="panel projection-panel">
+          <div class="panel-title">
+            <div>
+              <h2>Evolución proyectada</h2>
+              <p>Comparativo de ingresos, costos y equilibrio</p>
+            </div><button class="icon-button">•••</button>
+          </div>
+          <div class="projection-chart">
+            <div class="grid-lines"></div>
+            <div class="line line-sales"></div>
+            <div class="line line-cost"></div>
+            <div class="chart-badge">$168k<small>Ventas</small></div>
+            <div class="x-labels">
+              <span>Oct</span><span>Nov</span><span>Dic</span><span>Ene</span><span>Feb</span><span>Mar</span>
+            </div>
+          </div>
+          <div class="legend centered"><span><i class="dot blue"></i>Ingresos</span><span><i
+                class="dot violet"></i>Costos</span><span><i class="dot dashed"></i>Equilibrio</span></div>
+        </article>
+      </section>
+
+      <section class="view" id="reportes">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">Historial</p>
+            <h1>Reportes</h1>
+            <p>Consulta y organiza los análisis realizados.</p>
+          </div><button class="primary-action mock-action">⇩ Exportar reporte</button>
+        </div>
+        <div class="report-toolbar">
+          <div class="search-box">⌕ <input aria-label="Buscar reportes" placeholder="Buscar por nombre..."></div><select
+            aria-label="Filtrar periodo">
+            <option>Todos los periodos</option>
+          </select><select aria-label="Filtrar estado">
+            <option>Todos los estados</option>
+          </select>
+        </div>
+        <article class="panel table-panel">
+          <table>
+            <thead>
+              <tr>
+                <th>Nombre del análisis</th>
+                <th>Periodo</th>
+                <th>Punto de equilibrio</th>
+                <th>Ventas</th>
+                <th>Estado</th>
+                <th>Actualizado</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="file-icon">▤</span><strong>Operación septiembre</strong></td>
+                <td>Mensual</td>
+                <td>$84,250</td>
+                <td>$126,800</td>
+                <td><span class="tag success">Saludable</span></td>
+                <td>Hoy, 10:32</td>
+                <td>•••</td>
+              </tr>
+              <tr>
+                <td><span class="file-icon">▤</span><strong>Escenario expansión</strong></td>
+                <td>12 meses</td>
+                <td>$112,600</td>
+                <td>$168,000</td>
+                <td><span class="tag success">Saludable</span></td>
+                <td>28 sep. 2026</td>
+                <td>•••</td>
+              </tr>
+              <tr>
+                <td><span class="file-icon">▤</span><strong>Nuevo producto</strong></td>
+                <td>Trimestral</td>
+                <td>$96,430</td>
+                <td>$101,200</td>
+                <td><span class="tag warning">En observación</span></td>
+                <td>22 sep. 2026</td>
+                <td>•••</td>
+              </tr>
+              <tr>
+                <td><span class="file-icon">▤</span><strong>Operación agosto</strong></td>
+                <td>Mensual</td>
+                <td>$87,940</td>
+                <td>$116,650</td>
+                <td><span class="tag neutral">Archivado</span></td>
+                <td>31 ago. 2026</td>
+                <td>•••</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="table-footer"><span>Mostrando 4 de 18 reportes</span>
+            <div><button>‹</button><button
+                class="active">1</button><button>2</button><button>3</button><button>›</button></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="view assistant-view" id="asistente">
+        <div class="page-heading compact">
+          <div>
+            <p class="eyebrow">Apoyo inteligente</p>
+            <h1>Asistente IA <span class="beta-title">Beta</span></h1>
+            <p>Explora preguntas sobre tus indicadores y escenarios.</p>
+          </div><button class="secondary-action mock-action">＋ Nueva conversación</button>
+        </div>
+        <div class="chat-shell">
+
+          <article class="chat-main">
+            <div class="chat-heading"><span class="ai-avatar">✦</span>
+              <div><strong>Asistente de equilibrio</strong><small><i></i> Disponible para ayudarte</small></div>
+            </div>
+            <div class="messages">
+              <div class="message ai"><span>✦</span>
+                <div>¡Hola, Alex! Puedo ayudarte a interpretar el punto de equilibrio, revisar tus costos o explorar un
+                  escenario. ¿Qué te gustaría analizar?</div>
+              </div>
+              <div class="suggestions"><button>¿Cómo mejoro mi margen?</button><button>Resume mis
+                  indicadores</button><button>Compara dos escenarios</button></div>
+            </div>
+            <div class="chat-input"><button aria-label="Adjuntar">＋</button><input
+                placeholder="Escribe una pregunta sobre tu negocio..." aria-label="Mensaje"><button
+                class="send mock-action" aria-label="Enviar">➤</button></div>
+            <small class="disclaimer">Este asistente es un prototipo visual y puede mostrar información de
+              ejemplo.</small>
+          </article>
+        </div>
+      </section>
+
+      <section class="view" id="configuracion">
+        <div class="page-heading compact">
+          <div>
+            <p class="eyebrow">Preferencias</p>
+            <h1>Configuración</h1>
+            <p>Personaliza la apariencia y los valores predeterminados.</p>
+          </div>
+        </div>
+        <div class="settings-layout">
+          <article class="panel settings-menu"><button
+              class="active">General</button><button>Apariencia</button><button>Notificaciones</button><button>Datos</button>
+          </article>
+          <article class="panel settings-content">
+            <h2>Preferencias generales</h2><label><span>Moneda principal<small>Se mostrará en cálculos y
+                  reportes.</small></span><select>
+                <option>Peso mexicano (MXN)</option>
+              </select></label><label><span>Periodo predeterminado<small>Selección inicial al crear un
+                  análisis.</small></span><select>
+                <option>Mensual</option>
+              </select></label><label><span>Formato numérico<small>Separadores usados para cifras y
+                  porcentajes.</small></span><select>
+                <option>1,234.56</option>
+              </select></label><button class="primary-action mock-action">Guardar cambios</button>
+          </article>
+        </div>
+      </section>
+
+      <section class="view" id="acerca">
+        <div class="about-card"><span class="brand-mark large">CE</span>
+          <p class="eyebrow">Prototipo visual</p>
+          <h1>Calculadora de Equilibrio</h1>
+          <p>Una propuesta de interfaz para visualizar indicadores, explorar escenarios y consultar reportes financieros
+            de forma sencilla.</p>
+          <div class="about-meta"><span>Versión conceptual<strong>0.2</strong></span><span>Plataformas
+              previstas<strong>Web · Móvil · PC</strong></span><span>Estado<strong>Mockup estático</strong></span></div>
+        </div>
+      </section>
+    </main>
+
+    <nav class="mobile-nav" aria-label="Navegación móvil">
+      <button class="active" data-view="inicio"><span>⌂</span>Inicio</button><button
+        data-view="calculadora"><span>⌗</span>Calcular</button><button
+        data-view="proyeccion"><span>↗</span>Proyección</button><button
+        data-view="reportes"><span>▤</span>Reportes</button><button
+        data-view="asistente"><span>✦</span>Asistente</button>
+    </nav>
+  </div>
+  <div class="toast" id="toast" role="status">Acción ilustrativa: este prototipo no procesa ni guarda datos.</div>
+  <script src="script.js"></script>
+</body>
+
+</html>
